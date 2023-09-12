@@ -26,6 +26,8 @@ control.addEventListener('click', function(){
 	}
 
 	document.getElementById('output').innerHTML = message;
+
+
 })
 
 reset.addEventListener('click', function(){
@@ -34,4 +36,44 @@ reset.addEventListener('click', function(){
 	mailValid = false;
 	message = 'Attenzione! questa mail non è registrata!';
 	outputMessage.classList.add('d-none');
+})
+
+
+/*************************************************************************/
+
+const play = document.getElementById('btn-play');
+
+
+
+
+// const userNumber = Math.floor(Math.random() * 6) + 1;
+// console.log ('userNumber: ' + userNumber);
+// const computerNumber = Math.floor(Math.random() * 6) + 1;
+// console.log ('computerNumber: ' + computerNumber);
+
+play.addEventListener('click', function(){
+	let diceResult ;
+	// creare 2 variabili per i giocatori (utente e computer)
+	// generare 2 numeri da 1 a 6 e salvare nelle 2 variabili 
+	console.log('-------------------------------');
+	const userNumber = Math.floor(Math.random() * 6) + 1;
+	console.log ('userNumber: ' + userNumber);
+	const computerNumber = Math.floor(Math.random() * 6) + 1;
+	console.log ('computerNumber: ' + computerNumber);
+	document.getElementById('user-number').innerHTML = 'IL TUO NUMERO: ' + userNumber;
+	document.getElementById('computer-number').innerHTML = 'IL NUMERO DEL COMP: ' + computerNumber;
+
+	// fare un confronto tra i 2 variabili, vince chi tra i due ha il numero più alto.
+	// visualizzare un messaggio ('Hai vinto!' , 'Hai perso!' oppure 'Pareggio!' )
+	if (userNumber > computerNumber){
+		console.log('Hai vinto!');
+		diceResult = 'Hai vinto!';
+	} else if (userNumber < computerNumber){
+		console.log('Hai perso!');
+		diceResult = 'Hai perso!';
+	} else {
+		console.log('Pareggio!');
+		diceResult = 'Pareggio!';
+	}
+	document.getElementById('dice-result').innerHTML = diceResult;
 })
